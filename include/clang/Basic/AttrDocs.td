@@ -851,10 +851,10 @@ Sample usage:
   }];
 }
 
-def EosioActionDocs : Documentation {
+def AgrioActionDocs : Documentation {
   let Category = DocCatFunction;
   let Content = [{
-The ``eosio-action`` attribute marks a method as being an eosio action.
+The ``agrio-action`` attribute marks a method as being an agrio action.
   }];
 }
 

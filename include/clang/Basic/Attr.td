@@ -1403,11 +1403,11 @@ def NoSplitStack : InheritableAttr {
   let Documentation = [NoSplitStackDocs];
 }
 
-def EosioAction : InheritableAttr {
-  let Spellings = [GCC<"eosio_action">];
+def AgrioAction : InheritableAttr {
+  let Spellings = [GCC<"agrio_action">];
   let Subjects = SubjectList<[Function], WarnDiag,
                              "functions">;
-  let Documentation = [EosioActionDocs];
+  let Documentation = [AgrioActionDocs];
 }
 
 def NonNull : InheritableParamAttr {
