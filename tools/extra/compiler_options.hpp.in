@@ -254,7 +254,7 @@ static std::string WhereAmI() {
 }
 
 static std::string GetCompDefaults() {
-   const char* egrio_apply_suff = "${CMAKE_SHARED_LIBRARY_SUFFIX}";
+   const char* agrio_apply_suff = "${CMAKE_SHARED_LIBRARY_SUFFIX}";
    std::string apply_lib;
    if (boost::filesystem::exists(WhereAmI()+"/LLVMAgrioApply"+agrio_apply_suff))
       apply_lib = WhereAmI()+"/LLVMAgrioApply"+agrio_apply_suff;
