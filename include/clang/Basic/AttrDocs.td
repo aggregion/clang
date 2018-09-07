@@ -200,6 +200,7 @@ that appears to be capable of returning to its caller.
   }];
 }
 
+
 def CXX11NoReturnDocs : Documentation {
   let Category = DocCatFunction;
   let Content = [{
@@ -854,7 +855,14 @@ Sample usage:
 def AgrioActionDocs : Documentation {
   let Category = DocCatFunction;
   let Content = [{
-The ``agrio-action`` attribute marks a method as being an agrio action.
+The ``agrio::action`` attribute marks a method as being an agrio action.
+  }];
+}
+
+def EosioTableDocs : Documentation {
+  let Category = DocCatFunction;
+  let Content = [{
+The ``agrio::table`` attribute marks a record as being an agrio table.
   }];
 }
 
