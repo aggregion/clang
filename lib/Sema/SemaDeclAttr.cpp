@@ -386,7 +386,7 @@ bool Sema::checkStringLiteralArgumentAttr(const AttributeList &AL,
   Str = Literal->getString();
   return true;
 }
-static void handleEosioActionAttribute(Sema &S, Decl *D, const AttributeList &AL) {
+static void handleAgrioActionAttribute(Sema &S, Decl *D, const AttributeList &AL) {
   // Handle the cases where the attribute has a text message.
   StringRef Str, Replacement;
   if (AL.isArgExpr(0) && AL.getArgAsExpr(0) &&
@@ -394,11 +394,11 @@ static void handleEosioActionAttribute(Sema &S, Decl *D, const AttributeList &AL
     return;
 
   D->addAttr(::new (S.Context)
-                 EosioActionAttr(AL.getRange(), S.Context, Str,
+                 AgrioActionAttr(AL.getRange(), S.Context, Str,
                                 AL.getAttributeSpellingListIndex()));
 }
 
-static void handleEosioTableAttribute(Sema &S, Decl *D, const AttributeList &AL) {
+static void handleAgrioTableAttribute(Sema &S, Decl *D, const AttributeList &AL) {
   // Handle the cases where the attribute has a text message.
   StringRef Str, Replacement;
   if (AL.isArgExpr(0) && AL.getArgAsExpr(0) &&
@@ -406,7 +406,7 @@ static void handleEosioTableAttribute(Sema &S, Decl *D, const AttributeList &AL)
     return;
 
   D->addAttr(::new (S.Context)
-                 EosioTableAttr(AL.getRange(), S.Context, Str,
+                 AgrioTableAttr(AL.getRange(), S.Context, Str,
                                 AL.getAttributeSpellingListIndex()));
 }
 /// Applies the given attribute to the Decl without performing any
@@ -5844,11 +5844,11 @@ static void ProcessDeclAttribute(Sema &S, Scope *scope, Decl *D,
     S.Diag(AL.getLoc(), diag::err_stmt_attribute_invalid_on_decl)
         << AL.getName() << D->getLocation();
     break;
-  case AttributeList::AT_EosioAction:
-    handleEosioActionAttribute(S, D, AL);
+  case AttributeList::AT_AgrioAction:
+    handleAgrioActionAttribute(S, D, AL);
     break;
-  case AttributeList::AT_EosioTable:
-    handleEosioTableAttribute(S, D, AL);
+  case AttributeList::AT_AgrioTable:
+    handleAgrioTableAttribute(S, D, AL);
     break;
   case AttributeList::AT_Interrupt:
     handleInterruptAttr(S, D, AL);

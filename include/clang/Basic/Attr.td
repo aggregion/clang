@@ -929,19 +929,19 @@ def C11NoReturn : InheritableAttr {
   let Documentation = [C11NoReturnDocs];
 }
 
-def EosioAction : InheritableAttr {
-   let Spellings = [CXX11<"eosio", "action">, GNU<"eosio_action">];
+def AgrioAction : InheritableAttr {
+   let Spellings = [CXX11<"agrio", "action">, GNU<"agrio_action">];
    let Args = [StringArgument<"name", 1>];
    let Subjects = SubjectList<[CXXRecord, CXXMethod]>;
-   let Documentation = [EosioActionDocs];
+   let Documentation = [AgrioActionDocs];
 }
 
-def EosioTable : InheritableAttr {
-   let Spellings = [CXX11<"eosio", "table">, GNU<"eosio_table">];
+def AgrioTable : InheritableAttr {
+   let Spellings = [CXX11<"agrio", "table">, GNU<"agrio_table">];
    let Args = [StringArgument<"name", 1>];
    let Subjects = SubjectList<[CXXRecord]>;
    let MeaningfulToClassTemplateDefinition = 1;
-   let Documentation = [EosioTableDocs];
+   let Documentation = [AgrioTableDocs];
 }
 
 def CXX11NoReturn : InheritableAttr {

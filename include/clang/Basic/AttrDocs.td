@@ -859,7 +859,7 @@ The ``agrio::action`` attribute marks a method as being an agrio action.
   }];
 }
 
-def EosioTableDocs : Documentation {
+def AgrioTableDocs : Documentation {
   let Category = DocCatFunction;
   let Content = [{
 The ``agrio::table`` attribute marks a record as being an agrio table.

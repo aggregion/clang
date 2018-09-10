@@ -74,24 +74,24 @@ static cl::list<std::string> input_filename_opt(
 static cl::opt<bool> abigen_opt(
     "abigen",
     cl::desc("Generate ABI"),
-    cl::cat(EosioCompilerToolCategory));
+    cl::cat(AgrioCompilerToolCategory));
 // ignore for now
 static cl::opt<bool> g_opt(
       "g",
       cl::desc("debug build <ignored>"),
       cl::Hidden,
-      cl::cat(EosioCompilerToolCategory));
+      cl::cat(AgrioCompilerToolCategory));
 static cl::opt<std::string> x_opt(
       "x",
       cl::desc("<ignored>"),
       cl::Hidden,
       cl::Prefix,
-      cl::cat(EosioCompilerToolCategory));
+      cl::cat(AgrioCompilerToolCategory));
 static cl::opt<bool> pch_opt(
       "fpch-preprocess",
       cl::desc("<ignored>"),
       cl::Hidden,
-      cl::cat(EosioCompilerToolCategory));
+      cl::cat(AgrioCompilerToolCategory));
 static cl::opt<bool> CC_opt(
     "CC",
     cl::desc("Include comments from within macros in preprocessed output"),

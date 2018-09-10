@@ -725,10 +725,10 @@ public:
 
   /// Iterator that traverses the base classes of a class.
   using base_class_const_iterator = const CXXBaseSpecifier *;
-  bool isEosioAction() const { return hasAttr<EosioActionAttr>(); }
-  bool isEosioTable() const { return hasAttr<EosioTableAttr>(); }
-  EosioActionAttr* getEosioActionAttr() const { return getAttr<EosioActionAttr>(); }
-  EosioTableAttr*  getEosioTableAttr() const { return getAttr<EosioTableAttr>(); }
+  bool isAgrioAction() const { return hasAttr<AgrioActionAttr>(); }
+  bool isAgrioTable() const { return hasAttr<AgrioTableAttr>(); }
+  AgrioActionAttr* getAgrioActionAttr() const { return getAttr<AgrioActionAttr>(); }
+  AgrioTableAttr*  getAgrioTableAttr() const { return getAttr<AgrioTableAttr>(); }
 
 
   CXXRecordDecl *getCanonicalDecl() override {
@@ -2063,8 +2063,8 @@ public:
 
   bool isStatic() const;
   bool isInstance() const { return !isStatic(); }
-  bool isEosioAction() const { return hasAttr<EosioActionAttr>(); }
-  EosioActionAttr* getEosioActionAttr() const { return getAttr<EosioActionAttr>(); }
+  bool isAgrioAction() const { return hasAttr<AgrioActionAttr>(); }
+  AgrioActionAttr* getAgrioActionAttr() const { return getAttr<AgrioActionAttr>(); }
 
   /// Returns true if the given operator is implicitly static in a record
   /// context.
