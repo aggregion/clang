@@ -852,38 +852,38 @@ Sample usage:
   }];
 }
 
-def EosioIgnoreDocs : Documentation {
+def AgrioIgnoreDocs : Documentation {
   let Category = DocCatFunction;
   let Content = [{
-The ``eosio::ignore`` attribute marks a template struct as an ignorable type.
+The ``agrio::ignore`` attribute marks a template struct as an ignorable type.
   }];
 }
 
-def EosioRicardianDocs : Documentation {
+def AgrioRicardianDocs : Documentation {
   let Category = DocCatFunction;
   let Content = [{
-The ``eosio::ricardian`` attribute specifies filename of ricardian contract.
+The ``agrio::ricardian`` attribute specifies filename of ricardian contract.
   }];
 }
 
-def EosioContractDocs : Documentation {
+def AgrioContractDocs : Documentation {
   let Category = DocCatFunction;
   let Content = [{
-The ``eosio::contract`` attribute marks a method as being an eosio contract.
+The ``agrio::contract`` attribute marks a method as being an agrio contract.
   }];
 }
 
-def EosioActionDocs : Documentation {
+def AgrioActionDocs : Documentation {
   let Category = DocCatFunction;
   let Content = [{
-The ``eosio::action`` attribute marks a method as being an eosio action.
+The ``agrio::action`` attribute marks a method as being an agrio action.
   }];
 }
 
-def EosioTableDocs : Documentation {
+def AgrioTableDocs : Documentation {
   let Category = DocCatFunction;
   let Content = [{
-The ``eosio::table`` attribute marks a record as being an eosio table.
+The ``agrio::table`` attribute marks a record as being an agrio table.
   }];
 }
 

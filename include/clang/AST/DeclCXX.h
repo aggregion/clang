@@ -725,15 +725,15 @@ public:
 
   /// Iterator that traverses the base classes of a class.
   using base_class_const_iterator = const CXXBaseSpecifier *;
-  bool isEosioContract() const { return hasAttr<EosioContractAttr>(); }
-  bool isEosioAction() const { return hasAttr<EosioActionAttr>(); }
-  bool isEosioTable() const { return hasAttr<EosioTableAttr>(); }
-  bool isEosioIgnore() const { return hasAttr<EosioIgnoreAttr>(); }
-  bool hasEosioRicardian() const { return hasAttr<EosioRicardianAttr>(); }
-  EosioActionAttr* getEosioActionAttr() const { return getAttr<EosioActionAttr>(); }
-  EosioTableAttr*  getEosioTableAttr() const { return getAttr<EosioTableAttr>(); }
-  EosioContractAttr*  getEosioContractAttr() const { return getAttr<EosioContractAttr>(); }
-  EosioRicardianAttr*  getEosioRicardianAttr() const { return getAttr<EosioRicardianAttr>(); }
+  bool isAgrioContract() const { return hasAttr<AgrioContractAttr>(); }
+  bool isAgrioAction() const { return hasAttr<AgrioActionAttr>(); }
+  bool isAgrioTable() const { return hasAttr<AgrioTableAttr>(); }
+  bool isAgrioIgnore() const { return hasAttr<AgrioIgnoreAttr>(); }
+  bool hasAgrioRicardian() const { return hasAttr<AgrioRicardianAttr>(); }
+  AgrioActionAttr* getAgrioActionAttr() const { return getAttr<AgrioActionAttr>(); }
+  AgrioTableAttr*  getAgrioTableAttr() const { return getAttr<AgrioTableAttr>(); }
+  AgrioContractAttr*  getAgrioContractAttr() const { return getAttr<AgrioContractAttr>(); }
+  AgrioRicardianAttr*  getAgrioRicardianAttr() const { return getAttr<AgrioRicardianAttr>(); }
 
   CXXRecordDecl *getCanonicalDecl() override {
     return cast<CXXRecordDecl>(RecordDecl::getCanonicalDecl());
@@ -2067,12 +2067,12 @@ public:
 
   bool isStatic() const;
   bool isInstance() const { return !isStatic(); }
-  bool isEosioAction() const { return hasAttr<EosioActionAttr>(); }
-  bool isEosioContract() const { return hasAttr<EosioContractAttr>(); }
-  bool hasEosioRicardian() const { return hasAttr<EosioRicardianAttr>(); }
-  EosioActionAttr* getEosioActionAttr() const { return getAttr<EosioActionAttr>(); }
-  EosioContractAttr* getEosioContractAttr() const { return getAttr<EosioContractAttr>(); }
-  EosioRicardianAttr* getEosioRicardianAttr() const { return getAttr<EosioRicardianAttr>(); }
+  bool isAgrioAction() const { return hasAttr<AgrioActionAttr>(); }
+  bool isAgrioContract() const { return hasAttr<AgrioContractAttr>(); }
+  bool hasAgrioRicardian() const { return hasAttr<AgrioRicardianAttr>(); }
+  AgrioActionAttr* getAgrioActionAttr() const { return getAttr<AgrioActionAttr>(); }
+  AgrioContractAttr* getAgrioContractAttr() const { return getAttr<AgrioContractAttr>(); }
+  AgrioRicardianAttr* getAgrioRicardianAttr() const { return getAttr<AgrioRicardianAttr>(); }
 
   /// Returns true if the given operator is implicitly static in a record
   /// context.

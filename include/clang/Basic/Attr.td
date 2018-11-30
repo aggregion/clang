@@ -929,39 +929,39 @@ def C11NoReturn : InheritableAttr {
   let Documentation = [C11NoReturnDocs];
 }
 
-def EosioIgnore : InheritableAttr {
-   let Spellings = [CXX11<"eosio", "ignore">, GNU<"eosio_ignore">];
+def AgrioIgnore : InheritableAttr {
+   let Spellings = [CXX11<"agrio", "ignore">, GNU<"agrio_ignore">];
    let Subjects = SubjectList<[CXXRecord, Record]>;
-   let Documentation = [EosioIgnoreDocs];
+   let Documentation = [AgrioIgnoreDocs];
 }
 
-def EosioRicardian : InheritableAttr {
-   let Spellings = [CXX11<"eosio", "ricardian">, GNU<"eosio_ricardian">];
+def AgrioRicardian : InheritableAttr {
+   let Spellings = [CXX11<"agrio", "ricardian">, GNU<"agrio_ricardian">];
    let Args = [StringArgument<"name">];
    let Subjects = SubjectList<[CXXRecord, CXXMethod]>;
-   let Documentation = [EosioRicardianDocs];
+   let Documentation = [AgrioRicardianDocs];
 }
 
-def EosioContract : InheritableAttr {
-   let Spellings = [CXX11<"eosio", "contract">, GNU<"eosio_contract">];
+def AgrioContract : InheritableAttr {
+   let Spellings = [CXX11<"agrio", "contract">, GNU<"agrio_contract">];
    let Args = [StringArgument<"name", 1>];
    let Subjects = SubjectList<[CXXRecord, CXXMethod]>;
-   let Documentation = [EosioContractDocs];
+   let Documentation = [AgrioContractDocs];
 }
 
-def EosioAction : InheritableAttr {
-   let Spellings = [CXX11<"eosio", "action">, GNU<"eosio_action">];
+def AgrioAction : InheritableAttr {
+   let Spellings = [CXX11<"agrio", "action">, GNU<"agrio_action">];
    let Args = [StringArgument<"name", 1>];
    let Subjects = SubjectList<[CXXRecord, CXXMethod]>;
-   let Documentation = [EosioActionDocs];
+   let Documentation = [AgrioActionDocs];
 }
 
-def EosioTable : InheritableAttr {
-   let Spellings = [CXX11<"eosio", "table">, GNU<"eosio_table">];
+def AgrioTable : InheritableAttr {
+   let Spellings = [CXX11<"agrio", "table">, GNU<"agrio_table">];
    let Args = [StringArgument<"name", 1>];
    let Subjects = SubjectList<[CXXRecord]>;
    let MeaningfulToClassTemplateDefinition = 1;
-   let Documentation = [EosioTableDocs];
+   let Documentation = [AgrioTableDocs];
 }
 
 def CXX11NoReturn : InheritableAttr {

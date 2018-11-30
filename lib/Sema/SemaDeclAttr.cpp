@@ -387,18 +387,18 @@ bool Sema::checkStringLiteralArgumentAttr(const AttributeList &AL,
   return true;
 }
 
-static void handleEosioRicardianAttribute(Sema &S, Decl *D, const AttributeList &AL) {
+static void handleAgrioRicardianAttribute(Sema &S, Decl *D, const AttributeList &AL) {
   // Handle the cases where the attribute has a text message.
   StringRef Str, Replacement;
   if (AL.isArgExpr(0) && AL.getArgAsExpr(0) &&
       !S.checkStringLiteralArgumentAttr(AL, 0, Str))
     return;
    D->addAttr(::new (S.Context)
-                 EosioRicardianAttr(AL.getRange(), S.Context, Str,
+                 AgrioRicardianAttr(AL.getRange(), S.Context, Str,
                                 AL.getAttributeSpellingListIndex()));
 }
 
-static void handleEosioContractAttribute(Sema &S, Decl *D, const AttributeList &AL) {
+static void handleAgrioContractAttribute(Sema &S, Decl *D, const AttributeList &AL) {
   // Handle the cases where the attribute has a text message.
   StringRef Str, Replacement;
   if (AL.isArgExpr(0) && AL.getArgAsExpr(0) &&
@@ -406,11 +406,11 @@ static void handleEosioContractAttribute(Sema &S, Decl *D, const AttributeList &
     return;
 
   D->addAttr(::new (S.Context)
-                 EosioContractAttr(AL.getRange(), S.Context, Str,
+                 AgrioContractAttr(AL.getRange(), S.Context, Str,
                                 AL.getAttributeSpellingListIndex()));
 }
 
-static void handleEosioActionAttribute(Sema &S, Decl *D, const AttributeList &AL) {
+static void handleAgrioActionAttribute(Sema &S, Decl *D, const AttributeList &AL) {
   // Handle the cases where the attribute has a text message.
   StringRef Str, Replacement;
   if (AL.isArgExpr(0) && AL.getArgAsExpr(0) &&
@@ -418,11 +418,11 @@ static void handleEosioActionAttribute(Sema &S, Decl *D, const AttributeList &AL
     return;
 
   D->addAttr(::new (S.Context)
-                 EosioActionAttr(AL.getRange(), S.Context, Str,
+                 AgrioActionAttr(AL.getRange(), S.Context, Str,
                                 AL.getAttributeSpellingListIndex()));
 }
 
-static void handleEosioTableAttribute(Sema &S, Decl *D, const AttributeList &AL) {
+static void handleAgrioTableAttribute(Sema &S, Decl *D, const AttributeList &AL) {
   // Handle the cases where the attribute has a text message.
   StringRef Str, Replacement;
   if (AL.isArgExpr(0) && AL.getArgAsExpr(0) &&
@@ -430,7 +430,7 @@ static void handleEosioTableAttribute(Sema &S, Decl *D, const AttributeList &AL)
     return;
 
   D->addAttr(::new (S.Context)
-                 EosioTableAttr(AL.getRange(), S.Context, Str,
+                 AgrioTableAttr(AL.getRange(), S.Context, Str,
                                 AL.getAttributeSpellingListIndex()));
 }
 
@@ -5869,20 +5869,20 @@ static void ProcessDeclAttribute(Sema &S, Scope *scope, Decl *D,
     S.Diag(AL.getLoc(), diag::err_stmt_attribute_invalid_on_decl)
         << AL.getName() << D->getLocation();
     break;
-  case AttributeList::AT_EosioIgnore:
-    handleSimpleAttribute<EosioIgnoreAttr>(S, D, AL);
+  case AttributeList::AT_AgrioIgnore:
+    handleSimpleAttribute<AgrioIgnoreAttr>(S, D, AL);
     break;
-  case AttributeList::AT_EosioAction:
-    handleEosioActionAttribute(S, D, AL);
+  case AttributeList::AT_AgrioAction:
+    handleAgrioActionAttribute(S, D, AL);
     break;
-  case AttributeList::AT_EosioTable:
-    handleEosioTableAttribute(S, D, AL);
+  case AttributeList::AT_AgrioTable:
+    handleAgrioTableAttribute(S, D, AL);
     break;
-  case AttributeList::AT_EosioContract:
-    handleEosioContractAttribute(S, D, AL);
+  case AttributeList::AT_AgrioContract:
+    handleAgrioContractAttribute(S, D, AL);
     break;
-  case AttributeList::AT_EosioRicardian:
-    handleEosioRicardianAttribute(S, D, AL);
+  case AttributeList::AT_AgrioRicardian:
+    handleAgrioRicardianAttribute(S, D, AL);
     break;
   case AttributeList::AT_Interrupt:
     handleInterruptAttr(S, D, AL);
