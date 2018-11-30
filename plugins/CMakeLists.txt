@@ -1,0 +1,1 @@
+add_subdirectory(agrio_plugin)

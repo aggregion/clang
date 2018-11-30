@@ -929,6 +929,26 @@ def C11NoReturn : InheritableAttr {
   let Documentation = [C11NoReturnDocs];
 }
 
+def AgrioIgnore : InheritableAttr {
+   let Spellings = [CXX11<"agrio", "ignore">, GNU<"agrio_ignore">];
+   let Subjects = SubjectList<[CXXRecord, Record]>;
+   let Documentation = [AgrioIgnoreDocs];
+}
+
+def AgrioRicardian : InheritableAttr {
+   let Spellings = [CXX11<"agrio", "ricardian">, GNU<"agrio_ricardian">];
+   let Args = [StringArgument<"name">];
+   let Subjects = SubjectList<[CXXRecord, CXXMethod]>;
+   let Documentation = [AgrioRicardianDocs];
+}
+
+def AgrioContract : InheritableAttr {
+   let Spellings = [CXX11<"agrio", "contract">, GNU<"agrio_contract">];
+   let Args = [StringArgument<"name", 1>];
+   let Subjects = SubjectList<[CXXRecord, CXXMethod]>;
+   let Documentation = [AgrioContractDocs];
+}
+
 def AgrioAction : InheritableAttr {
    let Spellings = [CXX11<"agrio", "action">, GNU<"agrio_action">];
    let Args = [StringArgument<"name", 1>];

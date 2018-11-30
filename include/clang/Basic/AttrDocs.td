@@ -852,6 +852,27 @@ Sample usage:
   }];
 }
 
+def AgrioIgnoreDocs : Documentation {
+  let Category = DocCatFunction;
+  let Content = [{
+The ``agrio::ignore`` attribute marks a template struct as an ignorable type.
+  }];
+}
+
+def AgrioRicardianDocs : Documentation {
+  let Category = DocCatFunction;
+  let Content = [{
+The ``agrio::ricardian`` attribute specifies filename of ricardian contract.
+  }];
+}
+
+def AgrioContractDocs : Documentation {
+  let Category = DocCatFunction;
+  let Content = [{
+The ``agrio::contract`` attribute marks a method as being an agrio contract.
+  }];
+}
+
 def AgrioActionDocs : Documentation {
   let Category = DocCatFunction;
   let Content = [{

@@ -386,6 +386,30 @@ bool Sema::checkStringLiteralArgumentAttr(const AttributeList &AL,
   Str = Literal->getString();
   return true;
 }
+
+static void handleAgrioRicardianAttribute(Sema &S, Decl *D, const AttributeList &AL) {
+  // Handle the cases where the attribute has a text message.
+  StringRef Str, Replacement;
+  if (AL.isArgExpr(0) && AL.getArgAsExpr(0) &&
+      !S.checkStringLiteralArgumentAttr(AL, 0, Str))
+    return;
+   D->addAttr(::new (S.Context)
+                 AgrioRicardianAttr(AL.getRange(), S.Context, Str,
+                                AL.getAttributeSpellingListIndex()));
+}
+
+static void handleAgrioContractAttribute(Sema &S, Decl *D, const AttributeList &AL) {
+  // Handle the cases where the attribute has a text message.
+  StringRef Str, Replacement;
+  if (AL.isArgExpr(0) && AL.getArgAsExpr(0) &&
+      !S.checkStringLiteralArgumentAttr(AL, 0, Str))
+    return;
+
+  D->addAttr(::new (S.Context)
+                 AgrioContractAttr(AL.getRange(), S.Context, Str,
+                                AL.getAttributeSpellingListIndex()));
+}
+
 static void handleAgrioActionAttribute(Sema &S, Decl *D, const AttributeList &AL) {
   // Handle the cases where the attribute has a text message.
   StringRef Str, Replacement;
@@ -409,6 +433,7 @@ static void handleAgrioTableAttribute(Sema &S, Decl *D, const AttributeList &AL)
                  AgrioTableAttr(AL.getRange(), S.Context, Str,
                                 AL.getAttributeSpellingListIndex()));
 }
+
 /// Applies the given attribute to the Decl without performing any
 /// additional semantic checking.
 template <typename AttrType>
@@ -5844,11 +5869,20 @@ static void ProcessDeclAttribute(Sema &S, Scope *scope, Decl *D,
     S.Diag(AL.getLoc(), diag::err_stmt_attribute_invalid_on_decl)
         << AL.getName() << D->getLocation();
     break;
+  case AttributeList::AT_AgrioIgnore:
+    handleSimpleAttribute<AgrioIgnoreAttr>(S, D, AL);
+    break;
   case AttributeList::AT_AgrioAction:
     handleAgrioActionAttribute(S, D, AL);
     break;
   case AttributeList::AT_AgrioTable:
     handleAgrioTableAttribute(S, D, AL);
+    break;
+  case AttributeList::AT_AgrioContract:
+    handleAgrioContractAttribute(S, D, AL);
+    break;
+  case AttributeList::AT_AgrioRicardian:
+    handleAgrioRicardianAttribute(S, D, AL);
     break;
   case AttributeList::AT_Interrupt:
     handleInterruptAttr(S, D, AL);

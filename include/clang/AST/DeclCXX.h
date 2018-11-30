@@ -725,11 +725,15 @@ public:
 
   /// Iterator that traverses the base classes of a class.
   using base_class_const_iterator = const CXXBaseSpecifier *;
+  bool isAgrioContract() const { return hasAttr<AgrioContractAttr>(); }
   bool isAgrioAction() const { return hasAttr<AgrioActionAttr>(); }
   bool isAgrioTable() const { return hasAttr<AgrioTableAttr>(); }
+  bool isAgrioIgnore() const { return hasAttr<AgrioIgnoreAttr>(); }
+  bool hasAgrioRicardian() const { return hasAttr<AgrioRicardianAttr>(); }
   AgrioActionAttr* getAgrioActionAttr() const { return getAttr<AgrioActionAttr>(); }
   AgrioTableAttr*  getAgrioTableAttr() const { return getAttr<AgrioTableAttr>(); }
-
+  AgrioContractAttr*  getAgrioContractAttr() const { return getAttr<AgrioContractAttr>(); }
+  AgrioRicardianAttr*  getAgrioRicardianAttr() const { return getAttr<AgrioRicardianAttr>(); }
 
   CXXRecordDecl *getCanonicalDecl() override {
     return cast<CXXRecordDecl>(RecordDecl::getCanonicalDecl());
@@ -2064,7 +2068,11 @@ public:
   bool isStatic() const;
   bool isInstance() const { return !isStatic(); }
   bool isAgrioAction() const { return hasAttr<AgrioActionAttr>(); }
+  bool isAgrioContract() const { return hasAttr<AgrioContractAttr>(); }
+  bool hasAgrioRicardian() const { return hasAttr<AgrioRicardianAttr>(); }
   AgrioActionAttr* getAgrioActionAttr() const { return getAttr<AgrioActionAttr>(); }
+  AgrioContractAttr* getAgrioContractAttr() const { return getAttr<AgrioContractAttr>(); }
+  AgrioRicardianAttr* getAgrioRicardianAttr() const { return getAttr<AgrioRicardianAttr>(); }
 
   /// Returns true if the given operator is implicitly static in a record
   /// context.

@@ -1,0 +1,1 @@
+add_llvm_loadable_module(agrio_plugin agrio_autogen.cpp PLUGIN_TOOL clang)
